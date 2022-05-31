@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mt_Grass_Pl_MoveNaked_L00.wav-4c5128f550d7222ea52c8d532ad449db.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Mt_Grass_Pl_MoveNaked_L00.wav"
+dest_files=[ "res://.import/Mt_Grass_Pl_MoveNaked_L00.wav-4c5128f550d7222ea52c8d532ad449db.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
