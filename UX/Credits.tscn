@@ -1,0 +1,330 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/UI/background_ninepatch.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_back.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_page.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/titlecard try 2.png" type="Texture" id=4]
+[ext_resource path="res://Journal_Menu.tres" type="Theme" id=5]
+[ext_resource path="res://assets/textFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/textFontBorderless.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Credits.gd" type="Script" id=8]
+[ext_resource path="res://UX/fontextra.tres" type="DynamicFont" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="Credits" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.5
+margin_top = -85.0
+margin_right = 137.5
+margin_bottom = 85.0
+texture = ExtResource( 2 )
+patch_margin_left = 6
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -127.0
+margin_top = -67.0
+margin_right = 127.0
+margin_bottom = 67.0
+
+[node name="Control" type="Control" parent="NinePatchRect/HBoxContainer"]
+margin_right = 125.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="smallPage" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.5
+margin_top = -36.0
+margin_right = 56.5
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control/smallPage"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 107.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "A game developed
+by EJ Houston"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="GitHub" type="Button" parent="NinePatchRect/HBoxContainer/Control/smallPage"]
+margin_left = 6.0
+margin_top = 36.0
+margin_right = 107.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 1.1
+custom_colors/font_color_disabled = Color( 0.894118, 0.423529, 0.180392, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control/smallPage/GitHub"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -10.0
+margin_right = 52.5
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 9 )
+text = "Sidequest Simulator
+GitHub Repository"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.5
+margin_top = -52.0
+margin_right = 29.5
+margin_bottom = -39.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.454902, 0.247059, 0.223529, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "PreAlpha 0.0.3"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/HBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.5
+margin_top = -77.0
+margin_right = 30.5
+margin_bottom = -51.0
+rect_min_size = Vector2( -20, -20 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="MenuButton" type="Button" parent="NinePatchRect/HBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -40.5
+margin_top = -18.0
+margin_right = 40.5
+margin_bottom = 5.0
+theme = ExtResource( 5 )
+text = "Menu"
+
+[node name="Control2" type="Control" parent="NinePatchRect/HBoxContainer"]
+margin_left = 129.0
+margin_right = 254.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="buttonPage" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.5
+margin_top = -75.0
+margin_right = 62.5
+margin_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="menuButtons" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/Control2/buttonPage"]
+anchor_left = 0.048
+anchor_top = 0.0373134
+anchor_right = 0.968
+anchor_bottom = 0.962687
+theme = ExtResource( 5 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Icons" type="Button" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons"]
+margin_right = 115.0
+margin_bottom = 31.0
+focus_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0.894118, 0.423529, 0.180392, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = ExtResource( 1 )
+enabled_focus_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Icons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -10.0
+margin_right = 52.5
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 9 )
+text = "Pixeltier's 16x16 RPG Icon Pack"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Village" type="Button" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons"]
+margin_top = 35.0
+margin_right = 115.0
+margin_bottom = 67.0
+focus_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+enabled_focus_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Village"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 6.0
+margin_bottom = -4.0
+custom_fonts/font = ExtResource( 9 )
+text = "LimeZu's
+Serene Village"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Creatures" type="Button" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons"]
+margin_top = 71.0
+margin_right = 115.0
+margin_bottom = 103.0
+focus_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+enabled_focus_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Creatures"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -10.0
+margin_right = 52.5
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 9 )
+text = "Kenney's 
+Creature Mixer"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="UI" type="Button" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons"]
+margin_top = 107.0
+margin_right = 115.0
+margin_bottom = 139.0
+focus_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+enabled_focus_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -10.0
+margin_right = 52.5
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 9 )
+text = "Mounir Tohami's
+Creature Mixer"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/Control/smallPage/GitHub" to="." method="_on_GitHub_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/Control/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Icons" to="." method="_on_Icons_pressed"]
+[connection signal="mouse_entered" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Icons/Label" to="." method="_on_Label_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Icons/Label" to="." method="_on_Label_mouse_exited"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Village" to="." method="_on_Village_pressed"]
+[connection signal="mouse_entered" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Village/Label" to="." method="_on_Label_mouse_entered"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Creatures" to="." method="_on_Creatures_pressed"]
+[connection signal="mouse_entered" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Creatures/Label" to="." method="_on_Label_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/Creatures/Label" to="." method="_on_Label_mouse_exited"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/UI" to="." method="_on_UI_pressed"]
+[connection signal="mouse_entered" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/UI/Label" to="." method="_on_Label_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/HBoxContainer/Control2/buttonPage/menuButtons/UI/Label" to="." method="_on_Label_mouse_exited"]

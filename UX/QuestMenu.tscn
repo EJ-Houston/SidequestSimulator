@@ -1,0 +1,1006 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_back.png" type="Texture" id=1]
+[ext_resource path="res://UX/questMenu/CollectQuest.gd" type="Script" id=2]
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_page.png" type="Texture" id=3]
+[ext_resource path="res://assets/Enemies/creature-sheet.png" type="Texture" id=4]
+[ext_resource path="res://UX/MenuOpener.gd" type="Script" id=5]
+[ext_resource path="res://assets/Texture/BushTex.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/buttonArrow.png" type="Texture" id=7]
+[ext_resource path="res://assets/Texture/npc1_singlet.png" type="Texture" id=8]
+[ext_resource path="res://assets/UI/background_ninepatch.tres" type="StyleBox" id=9]
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_panel.png" type="Texture" id=10]
+[ext_resource path="res://assets/Items/axe_4.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/buttonArrowPressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/UI/exclam_bubble_hover.png" type="Texture" id=13]
+[ext_resource path="res://assets/Texture/chara_singlet.png" type="Texture" id=14]
+[ext_resource path="res://UX/questMenu/SpeakQuest.gd" type="Script" id=15]
+[ext_resource path="res://UX/questMenu/KillQuest.gd" type="Script" id=16]
+[ext_resource path="res://UX/QuestMenu.gd" type="Script" id=17]
+[ext_resource path="res://UX/questMenu/FindQuest.gd" type="Script" id=18]
+[ext_resource path="res://assets/textFont.tres" type="DynamicFont" id=19]
+[ext_resource path="res://assets/UI/questMenuButton.png" type="Texture" id=20]
+[ext_resource path="res://assets/UI/questMenuButtonFold.png" type="Texture" id=21]
+[ext_resource path="res://assets/buttonFont.tres" type="DynamicFont" id=22]
+[ext_resource path="res://assets/headerFont.tres" type="DynamicFont" id=23]
+[ext_resource path="res://Journal_Menu.tres" type="Theme" id=24]
+
+[sub_resource type="ButtonGroup" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 2
+fps = 3.0
+frame_0/texture = ExtResource( 7 )
+frame_1/texture = ExtResource( 12 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 3, 5, 18, 19 )
+
+[node name="QuestMenu" type="Node"]
+script = ExtResource( 17 )
+
+[node name="MenuControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Journal_Panel" type="Control" parent="MenuControl"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.5
+margin_top = -73.5
+margin_right = 132.5
+margin_bottom = 73.5
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PagesContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -121.5
+margin_top = -61.5
+margin_right = 121.5
+margin_bottom = 61.5
+alignment = 1
+
+[node name="LPage" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer"]
+margin_right = 119.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 115.0
+margin_bottom = 23.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = -7
+
+[node name="ActiveListButton" type="Button" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer"]
+margin_right = 52.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_colors/font_color_hover = Color( 0.752941, 0.796078, 0.862745, 1 )
+custom_colors/font_color_pressed = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_fonts/font = ExtResource( 22 )
+toggle_mode = true
+action_mode = 0
+group = SubResource( 4 )
+text = "Active"
+
+[node name="ActiveButtonHolder" type="ScrollContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton"]
+anchor_top = 1.1875
+anchor_right = 2.07692
+anchor_bottom = 6.9375
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.87
+theme = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ActiveButtonList" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder"]
+margin_right = 108.0
+margin_bottom = 120.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpeakQuest" type="Button" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList" groups=["Quest_Button"]]
+margin_right = 91.0
+margin_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+theme = ExtResource( 24 )
+custom_colors/font_color_hover = Color( 0.752941, 0.796078, 0.862745, 1 )
+custom_colors/font_color_pressed = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = ExtResource( 9 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "First Quest!"
+script = ExtResource( 15 )
+
+[node name="FindQuest" type="Button" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList" groups=["Quest_Button"]]
+margin_top = 31.0
+margin_right = 91.0
+margin_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+size_flags_horizontal = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_hover = Color( 0.752941, 0.796078, 0.862745, 1 )
+custom_colors/font_color_pressed = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = ExtResource( 9 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "Find Item"
+script = ExtResource( 18 )
+
+[node name="KillQuest" type="Button" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList" groups=["Quest_Button"]]
+margin_top = 62.0
+margin_right = 91.0
+margin_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+size_flags_horizontal = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_hover = Color( 0.752941, 0.796078, 0.862745, 1 )
+custom_colors/font_color_pressed = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = ExtResource( 9 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "Kill Monsters"
+script = ExtResource( 16 )
+
+[node name="CollectQuest" type="Button" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList" groups=["Quest_Button"]]
+margin_top = 93.0
+margin_right = 91.0
+margin_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+size_flags_horizontal = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_hover = Color( 0.752941, 0.796078, 0.862745, 1 )
+custom_colors/font_color_pressed = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = ExtResource( 9 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "Collect Berries"
+script = ExtResource( 2 )
+
+[node name="CompleteListButton" type="Button" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer"]
+margin_left = 45.0
+margin_right = 109.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_colors/font_color_hover = Color( 0.752941, 0.796078, 0.862745, 1 )
+custom_colors/font_color_pressed = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_fonts/font = ExtResource( 22 )
+toggle_mode = true
+action_mode = 0
+group = SubResource( 4 )
+text = "Complete"
+
+[node name="CompleteButtonHolder" type="ScrollContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/CompleteListButton"]
+anchor_left = -0.703125
+anchor_top = 1.1875
+anchor_right = 0.984375
+anchor_bottom = 6.9375
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.87
+theme = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CompleteeButtonList" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/CompleteListButton/CompleteButtonHolder"]
+margin_right = 108.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Right_Page" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer"]
+margin_left = 123.0
+margin_right = 243.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 6.0
+margin_right = -3.0
+margin_bottom = -10.0
+
+[node name="NoQuestInfoPage" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer"]
+visible = false
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuestName" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestName/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_shadow = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 23 )
+text = "No quests available!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestDescription" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage"]
+margin_top = 31.0
+margin_right = 113.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.91
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestDescription"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -25.0
+margin_right = 50.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 1, 1, 30, 30 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestDescription/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = -1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestDescription/NinePatchRect/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+text = "Find a nearby NPC to
+receive a quest and see it's info here!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestRequire" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage"]
+margin_top = 88.0
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestRequire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestRequire/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestRequire/MarginContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/NoQuestInfoPage/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 8 )
+stretch_mode = 6
+
+[node name="QuestInfoPage" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer"]
+visible = false
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuestName" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestName/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_shadow = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 23 )
+text = "Pick a quest to view!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestDescription" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage"]
+margin_top = 31.0
+margin_right = 113.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.91
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestDescription"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -25.0
+margin_right = 50.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 1, 1, 30, 30 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestDescription/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = -1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestDescription/NinePatchRect/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+text = "You'll find all the 
+info about your 
+quest here!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestRequire" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage"]
+margin_top = 88.0
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestRequire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestRequire/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestRequire/MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = -8.5
+margin_right = 38.5
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/QuestInfoPage/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_left = 30.0
+margin_right = 46.0
+margin_bottom = 17.0
+texture = SubResource( 3 )
+flip_h = true
+
+[node name="SpeakQuestInfo" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer" groups=["Quest_Page"]]
+visible = false
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuestName" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestName/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_shadow = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 23 )
+text = "Speak to the Stranger"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestDescription" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo"]
+margin_top = 31.0
+margin_right = 113.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.91
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestDescription"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -25.0
+margin_right = 50.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 1, 1, 30, 30 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestDescription/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestDescription/NinePatchRect/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_fonts/font = ExtResource( 19 )
+text = "Find the Helpful
+Stranger and press
+\"F\" to speak to them!"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="QuestRequire" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo"]
+margin_top = 88.0
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestRequire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestRequire/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestRequire/MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = -8.5
+margin_right = 38.5
+margin_bottom = 8.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="playerTex" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_right = 29.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="iconTex" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_left = 33.0
+margin_right = 43.0
+margin_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.6
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="npcTex" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/SpeakQuestInfo/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_left = 47.0
+margin_right = 77.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="FindQuestInfo" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer" groups=["Quest_Page"]]
+visible = false
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuestName" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestName/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_shadow = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 23 )
+text = "Find the Axe"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestDescription" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo"]
+margin_top = 31.0
+margin_right = 113.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.91
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestDescription"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -25.0
+margin_right = 50.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 1, 1, 30, 30 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestDescription/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestDescription/NinePatchRect/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+text = "Find the axe 
+and return it to 
+the villager!"
+align = 1
+autowrap = true
+
+[node name="QuestRequire" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo"]
+margin_top = 88.0
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestRequire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestRequire/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestRequire/MarginContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="axeTex" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/FindQuestInfo/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+
+[node name="KillQuestInfo" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer" groups=["Quest_Page"]]
+visible = false
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuestName" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestName/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_shadow = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 23 )
+text = "Kill the Enemies"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestDescription" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo"]
+margin_top = 31.0
+margin_right = 113.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.91
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestDescription"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -25.0
+margin_right = 50.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 1, 1, 30, 30 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestDescription/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestDescription/NinePatchRect/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+text = "Kill three blue monsters and return to the villager!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestRequire" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo"]
+margin_top = 88.0
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestRequire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestRequire/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestRequire/MarginContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="enemyTex" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/KillQuestInfo/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_left = 47.0
+margin_right = 65.0
+margin_bottom = 19.0
+texture = SubResource( 2 )
+stretch_mode = 6
+
+[node name="CollectQuestInfo" type="VBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer" groups=["Quest_Page"]]
+visible = false
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="QuestName" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestName/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+custom_colors/font_color_shadow = Color( 0.545098, 0.607843, 0.705882, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 23 )
+text = "Collect berries"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestDescription" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo"]
+margin_top = 31.0
+margin_right = 113.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.91
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestDescription"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -25.0
+margin_right = 50.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 1, 1, 30, 30 )
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestDescription/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestDescription/NinePatchRect/MarginContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 24 )
+text = "Collect 3 bushes 
+worth of berries!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="QuestRequire" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo"]
+margin_top = 88.0
+margin_right = 113.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestRequire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestRequire/MarginContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestRequire/MarginContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="axeTex" type="TextureRect" parent="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/Right_Page/MarginContainer/CollectQuestInfo/QuestRequire/MarginContainer/Control/HBoxContainer"]
+margin_right = 113.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="MenuOpener" type="TextureButton" parent="MenuControl"]
+anchor_left = 0.91875
+anchor_top = 0.0111111
+anchor_right = 0.99375
+anchor_bottom = 0.144444
+margin_bottom = -1.90735e-06
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 12, 12 )
+toggle_mode = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tween" type="Tween" parent="MenuControl/MenuOpener"]
+
+[node name="Control" type="Label" parent="."]
+visible = false
+margin_left = 207.0
+margin_top = 2.0
+margin_right = 306.0
+margin_bottom = 26.0
+theme = ExtResource( 24 )
+text = "Quest Completed!"
+align = 1
+valign = 1
+
+[connection signal="toggled" from="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton" to="." method="_on_ActiveListButton_toggled"]
+[connection signal="toggled" from="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList/SpeakQuest" to="." method="_on_SpeakQuest_toggled"]
+[connection signal="toggled" from="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList/FindQuest" to="." method="_on_FindQuest_toggled"]
+[connection signal="toggled" from="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList/KillQuest" to="." method="_on_KillQuest_toggled"]
+[connection signal="toggled" from="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/ActiveListButton/ActiveButtonHolder/ActiveButtonList/CollectQuest" to="." method="_on_CollectQuest_toggled"]
+[connection signal="toggled" from="MenuControl/Journal_Panel/NinePatchRect/PagesContainer/LPage/HBoxContainer/CompleteListButton" to="." method="_on_CompleteListButton_toggled"]
+[connection signal="toggled" from="MenuControl/MenuOpener" to="." method="_on_MenuOpener_toggled"]

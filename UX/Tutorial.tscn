@@ -1,0 +1,360 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_back.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_page.png" type="Texture" id=2]
+[ext_resource path="res://assets/textFontBorderless.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/split_frames/swipe/l0_protag_swipe6.png" type="Texture" id=4]
+[ext_resource path="res://assets/split_frames/run/Layer 1_protag_run6.png" type="Texture" id=5]
+[ext_resource path="res://assets/split_frames/swipe/l0_protag_swipe1.png" type="Texture" id=6]
+[ext_resource path="res://assets/split_frames/run/Layer 1_protag_run1.png" type="Texture" id=7]
+[ext_resource path="res://UX/Tutorial.gd" type="Script" id=8]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup08.png" type="Texture" id=9]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup09.png" type="Texture" id=10]
+[ext_resource path="res://assets/split_frames/run/Layer 1_protag_run3.png" type="Texture" id=11]
+[ext_resource path="res://assets/split_frames/swipe/l0_protag_swipe2.png" type="Texture" id=12]
+[ext_resource path="res://assets/split_frames/run/Layer 1_protag_run4.png" type="Texture" id=13]
+[ext_resource path="res://assets/split_frames/run/Layer 1_protag_run5.png" type="Texture" id=14]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup02.png" type="Texture" id=15]
+[ext_resource path="res://assets/split_frames/swipe/l0_protag_swipe4.png" type="Texture" id=16]
+[ext_resource path="res://assets/split_frames/swipe/l0_protag_swipe3.png" type="Texture" id=17]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup05.png" type="Texture" id=18]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup03.png" type="Texture" id=19]
+[ext_resource path="res://assets/split_frames/run/Layer 1_protag_run2.png" type="Texture" id=20]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup04.png" type="Texture" id=21]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup06.png" type="Texture" id=22]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup11.png" type="Texture" id=23]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup12.png" type="Texture" id=24]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup07.png" type="Texture" id=25]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup01.png" type="Texture" id=26]
+[ext_resource path="res://assets/split_frames/pocket/Layer 1_protag_pickup10.png" type="Texture" id=27]
+[ext_resource path="res://assets/split_frames/swipe/l0_protag_swipe5.png" type="Texture" id=28]
+[ext_resource path="res://Journal_Menu.tres" type="Theme" id=29]
+[ext_resource path="res://assets/Texture/NPC1_SpeakDown.png" type="Texture" id=32]
+[ext_resource path="res://assets/Texture/NPC1_SpeakUp.png" type="Texture" id=33]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+
+[sub_resource type="AnimatedTexture" id=2]
+frames = 6
+fps = 9.0
+frame_0/texture = ExtResource( 7 )
+frame_1/texture = ExtResource( 20 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 11 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 13 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 14 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 5 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 12
+fps = 9.0
+frame_0/texture = ExtResource( 26 )
+frame_1/texture = ExtResource( 15 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 19 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 21 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 18 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 22 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 25 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 9 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 10 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 27 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 23 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 24 )
+frame_11/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=4]
+frames = 6
+fps = 9.0
+frame_0/texture = ExtResource( 6 )
+frame_1/texture = ExtResource( 12 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 17 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 16 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 28 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 4 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=5]
+frames = 2
+frame_0/texture = ExtResource( 32 )
+frame_1/texture = ExtResource( 33 )
+frame_1/delay_sec = 0.0
+
+[node name="Tutorial" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.5
+margin_top = -85.0
+margin_right = 137.5
+margin_bottom = 85.0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Page2" type="NinePatchRect" parent="Panel/NinePatchRect"]
+margin_left = 10.0
+margin_top = 106.0
+margin_right = 144.0
+margin_bottom = 161.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect/Page2"]
+margin_left = 37.5
+margin_top = 15.0
+margin_right = 130.5
+margin_bottom = 44.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Use W, A, S, and D 
+for movement!"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/NinePatchRect/Page2"]
+margin_left = -0.5
+margin_top = 9.0
+margin_right = 40.5
+margin_bottom = 48.0
+texture = SubResource( 2 )
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/NinePatchRect"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 144.0
+margin_bottom = 102.0
+
+[node name="Page" type="NinePatchRect" parent="Panel/NinePatchRect/HBoxContainer"]
+margin_right = 65.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/NinePatchRect/HBoxContainer/Page"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -2.5
+margin_right = 16.0
+margin_bottom = 37.5
+texture = SubResource( 3 )
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="Panel/NinePatchRect/HBoxContainer/Page"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -3.0
+margin_bottom = -52.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Press \"E\"
+to pocket
+items!"
+align = 1
+valign = 1
+
+[node name="Page2" type="NinePatchRect" parent="Panel/NinePatchRect/HBoxContainer"]
+margin_left = 69.0
+margin_right = 134.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/NinePatchRect/HBoxContainer/Page2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -2.5
+margin_right = 16.0
+margin_bottom = 37.5
+texture = SubResource( 4 )
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="Panel/NinePatchRect/HBoxContainer/Page2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 6.0
+margin_right = -3.0
+margin_bottom = -51.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Press 
+R Mouse 
+to swipe!"
+align = 1
+valign = 1
+
+[node name="Page3" type="NinePatchRect" parent="Panel/NinePatchRect"]
+margin_left = 149.0
+margin_top = 15.0
+margin_right = 263.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label2" type="Label" parent="Panel/NinePatchRect/Page3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.5
+margin_top = 4.0
+margin_right = -3.5
+margin_bottom = -36.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Press \"F\" to interact with NPCs!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label3" type="Label" parent="Panel/NinePatchRect/Page3"]
+anchor_left = 0.377193
+anchor_top = 0.478261
+anchor_right = 0.973684
+anchor_bottom = 0.956522
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "NPCs will offer you quests!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/NinePatchRect/Page3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -0.5
+margin_right = -14.0
+margin_bottom = 31.5
+texture = SubResource( 5 )
+stretch_mode = 6
+
+[node name="Page4" type="NinePatchRect" parent="Panel/NinePatchRect"]
+margin_left = 149.0
+margin_top = 88.0
+margin_right = 263.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label3" type="Label" parent="Panel/NinePatchRect/Page4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -5.0
+margin_bottom = -7.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Check \"Credits\" for SS's github repo!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+margin_left = 173.0
+margin_top = 138.0
+margin_right = 285.0
+margin_bottom = 164.0
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+margin_right = 54.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 29 )
+text = "Menu"
+
+[node name="Button2" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 58.0
+margin_right = 112.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 29 )
+text = "Page 2"
+
+[connection signal="pressed" from="Panel/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]

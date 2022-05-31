@@ -1,0 +1,335 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_back.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/JournalMenu/bulletin_page.png" type="Texture" id=2]
+[ext_resource path="res://assets/textFontBorderless.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/textFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/UI/namebox.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/facebox.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/voicebox.png" type="Texture" id=7]
+[ext_resource path="res://UX/Tutorial.gd" type="Script" id=8]
+[ext_resource path="res://UX/fontextra.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Journal_Menu.tres" type="Theme" id=29]
+[ext_resource path="res://assets/UI/questMenuButtonFold.png" type="Texture" id=30]
+[ext_resource path="res://assets/UI/questMenuButton.png" type="Texture" id=31]
+[ext_resource path="res://assets/Texture/NPC1_SpeakDown.png" type="Texture" id=32]
+[ext_resource path="res://assets/Texture/NPC1_SpeakUp.png" type="Texture" id=33]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+
+[sub_resource type="AnimatedTexture" id=2]
+frames = 2
+frame_0/texture = ExtResource( 32 )
+frame_1/texture = ExtResource( 33 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 2
+fps = 2.0
+frame_0/texture = ExtResource( 30 )
+frame_1/texture = ExtResource( 31 )
+frame_1/delay_sec = 0.0
+
+[node name="TutorialPage2" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.5
+margin_top = -85.0
+margin_right = 137.5
+margin_bottom = 85.0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Page2" type="NinePatchRect" parent="Panel/NinePatchRect"]
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 93.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( -103.5, -29 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect/Page2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.0
+margin_top = -20.0
+margin_right = 40.0
+margin_bottom = 20.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Your goal is to complete all the quests available!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Page5" type="NinePatchRect" parent="Panel/NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.0
+margin_top = -84.0
+margin_right = 135.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( -103.5, -29 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Control" type="Control" parent="Panel/NinePatchRect/Page5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -6.0
+margin_bottom = -6.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dialog_Box" type="Control" parent="Panel/NinePatchRect/Page5/Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 36.0
+margin_top = -57.0
+margin_right = 36.0
+margin_bottom = -57.0
+
+[node name="VoiceBox" type="NinePatchRect" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box"]
+margin_top = -1.0
+margin_right = 142.0
+margin_bottom = 34.0
+texture = ExtResource( 7 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box/VoiceBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -2.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box/VoiceBox/MarginContainer"]
+margin_right = 134.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.247059, 0.156863, 0.196078, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Hey there, traveler!"
+autowrap = true
+
+[node name="FaceBox" type="NinePatchRect" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box/VoiceBox"]
+margin_left = -30.0
+margin_top = 23.0
+margin_right = -1.0
+margin_bottom = 52.0
+texture = ExtResource( 6 )
+patch_margin_left = 12
+patch_margin_top = 13
+patch_margin_right = 12
+patch_margin_bottom = 13
+
+[node name="Portrait" type="TextureRect" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box/VoiceBox/FaceBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.5
+margin_top = -12.5
+margin_right = 12.5
+margin_bottom = 12.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 2 )
+stretch_mode = 6
+
+[node name="NameBox" type="NinePatchRect" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box/VoiceBox"]
+margin_left = -1.0
+margin_top = 36.0
+margin_right = 70.0
+margin_bottom = 52.0
+texture = ExtResource( 5 )
+patch_margin_left = 20
+patch_margin_top = 6
+patch_margin_right = 20
+patch_margin_bottom = 6
+
+[node name="Name" type="Label" parent="Panel/NinePatchRect/Page5/Control/Dialog_Box/VoiceBox/NameBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = -2.0
+margin_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 4 )
+text = "Helpful Stranger"
+clip_text = true
+
+[node name="Page3" type="NinePatchRect" parent="Panel/NinePatchRect"]
+visible = false
+margin_left = 147.0
+margin_top = 11.0
+margin_right = 265.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Page4" type="NinePatchRect" parent="Panel"]
+margin_left = 31.0
+margin_top = 70.0
+margin_right = 147.0
+margin_bottom = 114.0
+rect_pivot_offset = Vector2( -103.5, -29 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label2" type="Label" parent="Panel/Page4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 4.0
+margin_right = -2.0
+margin_bottom = -4.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Talk to the NPC to receive your first quest!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+margin_left = 154.0
+margin_top = 138.0
+margin_right = 287.0
+margin_bottom = 164.0
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 29 )
+text = "Menu"
+
+[node name="Button2" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 68.0
+margin_right = 133.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 29 )
+text = "Page 1"
+
+[node name="Control" type="Control" parent="Panel"]
+margin_left = 152.0
+margin_top = 75.0
+margin_right = 288.0
+margin_bottom = 131.0
+
+[node name="Label2" type="Label" parent="Panel/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+custom_colors/font_color = Color( 0.454902, 0.247059, 0.223529, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "More detailed instructions for combat, collection, and conversation will be coming in Alpha 1.0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Page5" type="NinePatchRect" parent="Panel"]
+margin_left = 31.0
+margin_top = 116.0
+margin_right = 147.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label3" type="Label" parent="Panel/Page5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 7.0
+margin_right = -30.0
+margin_bottom = -9.0
+theme = ExtResource( 29 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Keep an eye on your quest journal!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/Page5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 31.0
+margin_top = -8.0
+margin_right = 52.0
+margin_bottom = 12.0
+texture = SubResource( 3 )
+stretch_mode = 6
+
+[connection signal="pressed" from="Panel/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
