@@ -28,3 +28,11 @@ Press the closed tab button in the top right corner to open the quest journal. (
 If you have a quest active, there will be a panel on the right telling you to select a quest. If no quests are active, it'll tell you that there are no quests to select.
 
 Select either "ACTIVE" or "COMPLETED" to view your active and completed quests. There will reveal a list of quest buttons, if selected, a panel will appear on the right side detailing the requirements to complete the quest. (In the future the ACTIVE and COMPLETED tabs will be more distinguished for less player confusion.)
+
+
+
+ASSET CREDITS
+https://pixeltier.itch.io/pixeltiers-16x16-rpg-icon-pack
+https://limezu.itch.io/serenevillagerevamped
+https://kenney.itch.io/creature-mixer
+https://mounirtohami.itch.io/pixel-art-gui-elements
