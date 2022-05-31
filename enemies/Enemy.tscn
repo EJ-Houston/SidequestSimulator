@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/Enemies/creature-sheet.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Hurtboxes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Enemies/creature-sheet2.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "redEnemy",
+"speed": 5.5
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "blueEnemy",
+"speed": 5.5
+} ]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 5.0
+height = 0.0
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 3
+script = ExtResource( 3 )
+
+[node name="Tex" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "blueEnemy"
+frame = 1
+playing = true
+offset = Vector2( 0, -12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -6 )
+shape = SubResource( 6 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 2 )]
+visible = false
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -10 )
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+max_health = 3
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+
+[editable path="Hurtbox"]
